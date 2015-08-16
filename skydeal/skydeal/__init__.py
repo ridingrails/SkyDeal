@@ -6,7 +6,7 @@ from flask.ext.neo4j import Neo4j
 from py2neo import Graph, authenticate, Node, Relationship
 
 # Configuration
-GRAPH_DATABASE="http://localhost:7474/db/data/"
+GRAPH_DATABASE=os.environ['NEO_URL']
 
 app = Flask(__name__)
 app.config.from_object(__name__)
