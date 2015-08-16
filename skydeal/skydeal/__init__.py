@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 from flask import Flask
 from flask.ext.neo4j import Neo4j
 from py2neo import Graph, authenticate, Node, Relationship
@@ -10,7 +11,7 @@ GRAPH_DATABASE="http://localhost:7474/db/data/"
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-authenticate("localhost:7474", "neo4j", "baselsbb!")
+authenticate("localhost:7474", os.environ['NEO_UN'], os.environ['NEO_PW'])
 
 flask4j = Graph()
 
